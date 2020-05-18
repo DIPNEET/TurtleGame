@@ -81,17 +81,17 @@ function draw(){
         pTurtle.setCollider("circle",250,0,50);
       }else
       if ((keyCode === LEFT_ARROW ||touches.length>0)&& pTurtle.x > 100){
-        pTurtle.velocityX=-5;;
+        pTurtle.velocityX=-5;
         touches=[]
         pTurtle.addImage(turtleImage);
         pTurtle.setCollider("circle",-250,0,50);
       }else
       if ((keyCode === DOWN_ARROW ||touches.length>0)&& pTurtle.y < innerHeight - 50){
-        pTurtle.velocityY=5;;
+        pTurtle.velocityY=5;
         touches=[]
       }else
       if ((keyCode === UP_ARROW||touches.length>0) && pTurtle.y > 100){
-        pTurtle.velocityY=-5;;
+        pTurtle.velocityY=-5;
         touches=[]
       }
 
