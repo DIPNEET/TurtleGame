@@ -73,22 +73,26 @@ function draw(){
    // pTurtle.debug = true
 
       //move the turtle with arrow keys...
-      if (keyCode === RIGHT_ARROW && pTurtle.x < innerWidth){
+      if ((keyCode === RIGHT_ARROW||touches.length>0) && pTurtle.x < innerWidth){
         pTurtle.x+=12;
+       touches=[]
         pTurtle.addImage(turtleImage2);
        // pTurtle.scale = 2
         pTurtle.setCollider("circle",250,0,50);
       }
-      if (keyCode === LEFT_ARROW && pTurtle.x > 100){
+      if ((keyCode === LEFT_ARROW ||touches.length>0)&& pTurtle.x > 100){
         pTurtle.x-=12;
+        touches=[]
         pTurtle.addImage(turtleImage);
         pTurtle.setCollider("circle",-250,0,50);
       }
-      if (keyCode === DOWN_ARROW && pTurtle.y < innerHeight - 50){
+      if ((keyCode === DOWN_ARROW ||touches.length>0)&& pTurtle.y < innerHeight - 50){
         pTurtle.y+=10;
+        touches=[]
       }
-      if (keyCode === UP_ARROW && pTurtle.y > 100){
+      if ((keyCode === UP_ARROW||touches.length>0) && pTurtle.y > 100){
         pTurtle.y-=10;
+        touches=[]
       }
 
       FishLGroup.collide( pTurtle, explosion);
