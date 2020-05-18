@@ -79,17 +79,17 @@ function draw(){
         pTurtle.addImage(turtleImage2);
        // pTurtle.scale = 2
         pTurtle.setCollider("circle",250,0,50);
-      }else
+      }
       if ((keyCode === LEFT_ARROW ||touches.length>0)&& pTurtle.x > 100){
         pTurtle.x=mouseX
         touches=[]
         pTurtle.addImage(turtleImage);
         pTurtle.setCollider("circle",-250,0,50);
-      }else
+      }
       if ((keyCode === DOWN_ARROW ||touches.length>0)&& pTurtle.y < innerHeight - 50){
         pTurtle.y=mouseY;
         touches=[]
-      }else
+      }
       if ((keyCode === UP_ARROW||touches.length>0) && pTurtle.y > 100){
         pTurtle.y=mouseY;
         touches=[]
