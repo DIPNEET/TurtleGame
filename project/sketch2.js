@@ -63,7 +63,10 @@ function setup(){
 // trash
    TrashLGroup = new Group();   
    TrashRGroup = new Group();   
-
+   this.left=createButton("L")
+   this.right=createButton("R")
+   this.up=createButton("U")
+   this.down=createButton("D")
 }
 
 function draw(){
@@ -95,6 +98,32 @@ function draw(){
   if (keyCode === LEFT_ARROW && boat.x > 250){
     boat.x-=7;
   }
+
+  if(touches.length>0){
+
+    this.left.mousePressed(()=>{
+      boat.x-=7;
+    })
+    this.left.position(innerWidth-230,innerHeight-200);
+  
+    this.right.mousePressed(()=>{
+      boat.x+=7;
+    })
+    this.right.position(innerWidth-170,innerHeight-200);
+
+    this.up.mousePressed(()=>{
+      hook.y-=10;
+    })
+    this.up.position(innerWidth-200,innerHeight-230);
+    
+    this.down.mousePressed(()=>{
+      hook.y+=10;
+    })
+    this.down.position(innerWidth-200,innerHeight-170);
+
+    touches=[]
+  }
+
 if (gameState === "play"){
 
   spawnFishL();
