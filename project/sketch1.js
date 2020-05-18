@@ -59,7 +59,11 @@ function setup(){
 // trash
    TrashLGroup = new Group();   
    TrashRGroup = new Group();   
-
+//navigation Buttons
+this.left=createButton("L")
+this.right=createButton("R")
+this.up=createButton("U")
+this.down=createButton("D")
 }
 
 function draw(){
@@ -72,28 +76,54 @@ function draw(){
   if (gameState === "play"){
    // pTurtle.debug = true
 
-       //move the turtle with arrow keys...
-      if ((keyCode === RIGHT_ARROW||touches.length>0) && pTurtle.x < innerWidth){
-        pTurtle.x=mouseX;
-       touches=[]
+      //move the turtle with arrow keys...
+     if (keyCode === RIGHT_ARROW && pTurtle.x < innerWidth){
+      pTurtle.x+=12;
         pTurtle.addImage(turtleImage2);
        // pTurtle.scale = 2
         pTurtle.setCollider("circle",250,0,50);
       }
-      if ((keyCode === LEFT_ARROW ||touches.length>0)&& pTurtle.x > 100){
-        pTurtle.x=mouseX
-        touches=[]
+      if (keyCode === LEFT_ARROW && pTurtle.x > 100){
+        pTurtle.x-=12;
         pTurtle.addImage(turtleImage);
         pTurtle.setCollider("circle",-250,0,50);
       }
-      if ((keyCode === DOWN_ARROW ||touches.length>0)&& pTurtle.y < innerHeight - 50){
-        pTurtle.y=mouseY;
-        touches=[]
+      if (keyCode === DOWN_ARROW && pTurtle.y < innerHeight - 50){
+        pTurtle.y+=12;
+        
       }
-      if ((keyCode === UP_ARROW||touches.length>0) && pTurtle.y > 100){
-        pTurtle.y=mouseY;
-        touches=[]
+      if (keyCode === UP_ARROW && pTurtle.y > 100){
+        pTurtle.y-=12;
+       
       }
+      if(touches.length>0){
+      this.left.mousePressed(()=>{
+        pTurtle.velocityX=-5;
+        pTurtle.velocityY=0;
+        pTurtle.addImage(turtleImage);
+        pTurtle.setCollider("circle",-250,0,50);
+      })
+      this.left.position(innerWidth-230,innerHeight-200);
+      this.right.mousePressed(()=>{
+        pTurtle.velocityX=5;
+        pTurtle.velocityY=0;
+        pTurtle.addImage(turtleImage2);
+        pTurtle.setCollider("circle",250,0,50);
+      })
+      this.right.position(innerWidth-170,innerHeight-200);
+      this.up.mousePressed(()=>{
+        pTurtle.velocityY=-5;
+      })
+      this.up.position(innerWidth-200,innerHeight-230);
+      this.down.mousePressed(()=>{
+        pTurtle.velocityY=5;
+      })
+      this.down.position(innerWidth-200,innerHeight-170);
+
+      touches=[]
+    }
+
+
 
       FishLGroup.collide( pTurtle, explosion);
       FishRGroup.collide( pTurtle, explosion);
