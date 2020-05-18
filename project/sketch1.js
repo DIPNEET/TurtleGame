@@ -72,26 +72,26 @@ function draw(){
   if (gameState === "play"){
    // pTurtle.debug = true
 
-      //move the turtle with arrow keys...
+       //move the turtle with arrow keys...
       if ((keyCode === RIGHT_ARROW||touches.length>0) && pTurtle.x < innerWidth){
-        pTurtle.velocityX=5;
+        pTurtle.x=mouseX;
        touches=[]
         pTurtle.addImage(turtleImage2);
        // pTurtle.scale = 2
         pTurtle.setCollider("circle",250,0,50);
       }else
       if ((keyCode === LEFT_ARROW ||touches.length>0)&& pTurtle.x > 100){
-        pTurtle.velocityX=-5;
+        pTurtle.x=mouseX
         touches=[]
         pTurtle.addImage(turtleImage);
         pTurtle.setCollider("circle",-250,0,50);
       }else
       if ((keyCode === DOWN_ARROW ||touches.length>0)&& pTurtle.y < innerHeight - 50){
-        pTurtle.velocityY=5;
+        pTurtle.y=mouseY;
         touches=[]
       }else
       if ((keyCode === UP_ARROW||touches.length>0) && pTurtle.y > 100){
-        pTurtle.velocityY=-5;
+        pTurtle.y=mouseY;
         touches=[]
       }
 
