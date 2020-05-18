@@ -96,14 +96,17 @@ function draw(){
         pTurtle.y-=12;
        
       }
+
       if(touches.length>0){
+
       this.left.mousePressed(()=>{
-        pTurtle.velocityX=-5;
+        pTurtle.velocityX=-7;
         pTurtle.velocityY=0;
         pTurtle.addImage(turtleImage);
         pTurtle.setCollider("circle",-250,0,50);
       })
       this.left.position(innerWidth-230,innerHeight-200);
+    
       this.right.mousePressed(()=>{
         pTurtle.velocityX=5;
         pTurtle.velocityY=0;
@@ -111,10 +114,12 @@ function draw(){
         pTurtle.setCollider("circle",250,0,50);
       })
       this.right.position(innerWidth-170,innerHeight-200);
+
       this.up.mousePressed(()=>{
         pTurtle.velocityY=-5;
       })
       this.up.position(innerWidth-200,innerHeight-230);
+      
       this.down.mousePressed(()=>{
         pTurtle.velocityY=5;
       })
